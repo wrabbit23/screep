@@ -13,6 +13,13 @@ module.exports.loop = function () {
       }
   }
 
+  var towers = Game.find(FIND_STRUCTURES, {
+          filter: (structure) => {
+              return (structure.structureType == STRUCTURE_EXTENSION)
+            }
+          }
+    console.log('towers ' + towers.length);
+
     var tower = Game.getObjectById('7fcf3e0e09dea2771a81917f');
     if(tower) {
         var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
