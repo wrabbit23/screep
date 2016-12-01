@@ -1,3 +1,6 @@
+require('prototype.spawn')();
+require('prototype.source')();
+
 var managerScreep = require('manager.screep');
 var roleHarvester = require('role.harvester');
 var roleUpgrader = require('role.upgrader');
@@ -6,6 +9,7 @@ var roleBuilder = require('role.builder');
 module.exports.loop = function () {
 
  console.log('we live');
+ console.log('total energy: '+Game.spawns['Spawn1'].getEnergy());
 
     managerScreep.run();
 
