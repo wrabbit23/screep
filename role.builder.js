@@ -24,7 +24,7 @@ var roleBuilder = {
                 }
             } else {
               if(creep.carry.energy < creep.carryCapacity) {
-                  behaviorEnergy.harvest(creep);
+                  behaviorEnergy.buy(creep);
               }
               else {
                   behaviorEnergy.deliver(creep);

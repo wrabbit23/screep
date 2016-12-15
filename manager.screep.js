@@ -5,16 +5,15 @@ var managerScreep = {
         for (var name in Memory.creeps) {
             if (!Game.creeps[name]) {
                 delete Memory.creeps[name];
-                console.log('Clearing non-existing creep memory:', name);
+//                console.log('Clearing non-existing creep memory:', name);
             }
         }
 
         //replentish harvesters
         var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
-        console.log('Harvesters: ' + harvesters.length);
+//        console.log('Harvesters: ' + harvesters.length);
 
-        if (harvesters.length < 2) {
-            console.log('less than 2');
+        if (harvesters.length < 6) {
             var newName = Game.spawns['Spawn1'].createCreep([WORK, CARRY, MOVE], undefined, {
                 role: 'harvester'
             });
@@ -23,9 +22,9 @@ var managerScreep = {
 
         //replentish upgrader
         var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
-        console.log('Upgraders: ' + upgraders.length);
+//        console.log('Upgraders: ' + upgraders.length);
 
-        if (upgraders.length < 2) {
+        if (upgraders.length < 3) {
 
             var newName = Game.spawns['Spawn1'].createCreep([WORK, CARRY, MOVE], undefined, {
                 role: 'upgrader'
@@ -35,7 +34,7 @@ var managerScreep = {
 
         //replentish builder
         var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
-        console.log('Builders: ' + builders.length);
+//        console.log('Builders: ' + builders.length);
 
         if (builders.length < 1) {
 
