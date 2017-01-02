@@ -33,12 +33,9 @@ module.exports = function()
 	    }, this);
 
       var availableSlots = totalSlots - occupiedSlots;
-
+      //console.log('availableSlots '+availableSlots);
       return availableSlots;
 
     };
-
-    Source.prototype.checkIn = function(creep) {
-    }
 
 };

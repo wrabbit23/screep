@@ -1,5 +1,3 @@
-var behaviorEnergy = require('behavior.energy');
-
 var roleUpgrader = {
 
     /** @param {Creep} creep **/
@@ -14,9 +12,7 @@ var roleUpgrader = {
 	        creep.say('upgrading');
 	    }
 	    if(creep.memory.upgrading) {
-          if(creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {
-              creep.moveTo(creep.room.controller);
-          }
+        behaviorUpgrade.upgrade(creep);
       }
       else {
         behaviorEnergy.buy(creep);
