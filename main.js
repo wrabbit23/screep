@@ -8,6 +8,7 @@ require('prototype.room')();
 //
 //
 global.managerScreep = require('manager.screep');
+global.units = require("units");
 
 //
 //

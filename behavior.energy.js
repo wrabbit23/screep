@@ -24,10 +24,8 @@ var behaviorEnergy = {
 
     //screep should seek out and harvest energy
     harvest: function(creep) {
-
       var sources = creep.room.find(FIND_SOURCES);
       var harvestLocation = creep.pos.findClosestByPath(sources);
-
       var harvestAction =creep.harvest(harvestLocation);
         if(harvestAction == ERR_NOT_IN_RANGE) {
             creep.moveTo(harvestLocation);
@@ -61,7 +59,7 @@ var behaviorEnergy = {
       } else {
 
         var source = Game.spawns['Spawn1'];
-        if ((source.energy>200) && (source.energy>=energyNeed)) {
+        if ((source.energy>280) && (source.energy>=energyNeed)) {
           if(creep.withdraw(source, RESOURCE_ENERGY, energyNeed) == ERR_NOT_IN_RANGE) {
               creep.moveTo(source);
           }

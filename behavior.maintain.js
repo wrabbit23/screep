@@ -6,7 +6,7 @@ var behaviorMaintain = {
     maintain: function(creep) {
       var closestDamagedStructure = creep.pos.findClosestByRange(FIND_STRUCTURES, {
           filter: (structure) => {
-            return (structure.hits < structure.hitsMax && structure.structureType!='constructedWall');
+            return (structure.hits < structure.hitsMax*.5 && structure.structureType!='constructedWall');
           }
       });
 
