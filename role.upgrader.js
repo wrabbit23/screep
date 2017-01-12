@@ -15,7 +15,7 @@ var roleUpgrader = {
         behaviorUpgrade.upgrade(creep);
       }
       else {
-        behaviorEnergy.buy(creep);
+        behaviorEnergy.harvest(creep);
       }
 	}
 };

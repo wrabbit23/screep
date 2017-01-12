@@ -38,7 +38,7 @@ var behaviorEnergy = {
 
     //screep should aqcuire energy from storage
     buy: function(creep) {
-      //console.log('creep buying - '+creep.name);
+      console.log('creep buying - '+creep.name);
 
       var energyNeed = creep.carryCapacity-creep.carry.energy;
       var closestContainer = creep.pos.findClosestByRange(FIND_STRUCTURES, {

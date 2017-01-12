@@ -30,17 +30,17 @@ module.exports =
 		"parts": [
 			{
 				"part" : WORK,
-				"weight" : 0.2,
+				"weight" : 0.4,
 				"minimum" : 1
 			},
 			{
 				"part" : CARRY,
-				"weight" : 0.4,
+				"weight" : 0.3,
 				"minimum" : 1
 			},
 			{
 				"part" : MOVE,
-				"weight" : 0.4,
+				"weight" : 0.3,
 				"minimum" : 1
 			}
 		],

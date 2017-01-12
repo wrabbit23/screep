@@ -11,10 +11,9 @@ var managerScreep = {
 
         let spawn = Game.spawns['Spawn1'];
 
-        console.log('spawn.room.getSpawnEnergy().energy ' + spawn.room.getSpawnEnergy().energy);
+        var spawnEnergy=spawn.room.getSpawnEnergy();
 
-        if(spawn.room.getSpawnEnergy().energy>300) {
-
+        if((spawnEnergy.energy==spawnEnergy.energyCapacity) || (Object.keys(Game.creeps).length<2)) {
 
           //replentish harvesters
           var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
@@ -22,7 +21,7 @@ var managerScreep = {
 
           if (harvesters.length < 2) {
 
-              spawn.spawnUnitByEnergy('harvester', spawn.getEnergy())
+              spawn.spawnUnitByEnergy('harvester', spawnEnergy.energy)
 
           }
 
@@ -44,7 +43,7 @@ var managerScreep = {
 
           if (upgraders.length < 2) {
 
-              spawn.spawnUnitByEnergy('upgrader', spawn.getEnergy())
+              spawn.spawnUnitByEnergy('upgrader', spawnEnergy.energy)
 
           }
 
@@ -54,7 +53,7 @@ var managerScreep = {
 
           if (builders.length < 2) {
 
-              spawn.spawnUnitByEnergy('builder', spawn.getEnergy())
+              spawn.spawnUnitByEnergy('builder', spawnEnergy.energy)
 
           }
 

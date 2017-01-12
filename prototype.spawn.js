@@ -27,6 +27,7 @@ module.exports = function()
 
     Spawn.prototype.spawnUnitByEnergy = function (unitName, energy)
     {
+      log.p('spawning with energy, energy = '+energy)
     	let debug = false;
     	let parts = [];
     	let name;
@@ -64,7 +65,7 @@ module.exports = function()
 
           newName = this.createCreep(parts , undefined , units[unitName].memory);
           console.log('Spawning new creep: ' + newName);
-
+//console.log('i would spawn a creep')
         } else {
 
           return false;
