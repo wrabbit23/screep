@@ -13,11 +13,12 @@ var managerScreep = {
 
         var spawnEnergy=spawn.room.getSpawnEnergy();
 
-        if((spawnEnergy.energy==spawnEnergy.energyCapacity) || (Object.keys(Game.creeps).length<2)) {
+        var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
+
+        if((spawnEnergy.energy==spawnEnergy.energyCapacity*.75) || (harvesters.length<1)) {
 
           //replentish harvesters
-          var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
-  //        console.log('Harvesters: ' + harvesters.length);
+          //console.log('Harvesters: ' + harvesters.length);
 
           if (harvesters.length < 2) {
 

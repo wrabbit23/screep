@@ -5,21 +5,32 @@ var behaviorEnergy = {
     //screep should deliver energy to any structure that requires it
     deliver: function(creep) {
 
-      var targets = creep.room.find(FIND_STRUCTURES, {
+      var primaryDeliveryTargets = creep.room.find(FIND_STRUCTURES, {
               filter: (structure) => {
                   return (structure.structureType == STRUCTURE_EXTENSION ||
-                          structure.structureType == STRUCTURE_SPAWN ||
-                          structure.structureType == STRUCTURE_CONTAINER) && structure.energy < structure.energyCapacity;
+                          structure.structureType == STRUCTURE_SPAWN) && structure.energy < structure.energyCapacity;
               }
       });
-      if(targets.length > 0) {
-          if(creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-            //console.log('delivering energy');
-              creep.moveTo(targets[0]);
-          }
+
+      var secondaryDeliveryTargets = creep.room.find(FIND_STRUCTURES, {
+              filter: (structure) => {
+                  return (structure.structureType == STRUCTURE_TOWER ||
+                          structure.structureType == STRUCTURE_STORAGE) && structure.energy < structure.energyCapacity;
+              }
+      });
+
+      if (primaryDeliveryTargets.length > 0) {
+          var target = creep.pos.findClosestByPath(primaryDeliveryTargets);
+      } else if (secondaryDeliveryTargets.length > 0) {
+          var target = creep.pos.findClosestByPath(secondaryDeliveryTargets);
       } else {
         return false;
       }
+
+      if(creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+          creep.moveTo(target);
+      }
+
     },
 
     //screep should seek out and harvest energy

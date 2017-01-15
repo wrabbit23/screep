@@ -34,28 +34,8 @@ module.exports.loop = function () {
 
  log.start('we live');
 
- //get available energy
-
- console.log('total energy: '+Game.spawns['Spawn1'].getEnergy());
-
  managerScreep.run();
  managerTower.run();
-
-    //move this tower stuff to manager.defense
-    var tower = Game.getObjectById('7fcf3e0e09dea2771a81917f');
-    if(tower) {
-        var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
-            filter: (structure) => structure.hits < structure.hitsMax
-        });
-        if(closestDamagedStructure) {
-            tower.repair(closestDamagedStructure);
-        }
-
-        var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
-        if(closestHostile) {
-            tower.attack(closestHostile);
-        }
-    };
 
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];

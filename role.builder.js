@@ -3,7 +3,6 @@ var roleBuilder = {
     /** @param {Creep} creep **/
     run: function(creep) {
 
-      console.log('running build')
       //build if you can, harvest if you must
       if(creep.memory.building || creep.memory.maintaining) {
 

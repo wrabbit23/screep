@@ -13,8 +13,6 @@ var behaviorMaintain = {
       });
 
       if (closestDamagedStructure) {
-        console.log('closestDamagedStructure.hits '+closestDamagedStructure.hits)
-        log.big(closestDamagedStructure.hits);
         return true;
       } else{
         return false;

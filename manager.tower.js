@@ -10,9 +10,9 @@ var managerTower = {
 
          console.log('towers '+towers.length)
 
-         if (towers.length>0) {
+         for (var key in towers) {
 
-           var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
+           var closestHostile = towers[key].pos.findClosestByRange(FIND_HOSTILE_CREEPS);
            if(closestHostile) {
 
             console.log('closestHostile.owner.username '+closestHostile.owner.username);

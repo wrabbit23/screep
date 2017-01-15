@@ -67,7 +67,7 @@ module.exports = function()
           console.log('Spawning new creep: ' + newName);
 //console.log('i would spawn a creep')
         } else {
-
+          console.log('not enough energy to spawn, only '+parts.length+' parts')
           return false;
         }
     }
